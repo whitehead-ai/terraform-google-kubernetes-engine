@@ -20,7 +20,7 @@
   Create Container Cluster
  *****************************************/
 resource "google_container_cluster" "primary" {
-  provider = google
+  provider = google-beta
 
   name            = var.name
   description     = var.description
@@ -216,7 +216,7 @@ resource "google_container_cluster" "primary" {
   Create Container Cluster node pools
  *****************************************/
 resource "google_container_node_pool" "pools" {
-  provider = google
+  provider = google-beta
   for_each = local.node_pools
   name     = each.key
   project  = var.project_id
