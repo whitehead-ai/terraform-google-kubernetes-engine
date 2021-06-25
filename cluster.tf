@@ -100,15 +100,39 @@ resource "google_container_cluster" "primary" {
 
   addons_config {
     http_load_balancing {
-      disabled = ! var.http_load_balancing
+      disabled = !var.http_load_balancing
     }
 
     horizontal_pod_autoscaling {
-      disabled = ! var.horizontal_pod_autoscaling
+      disabled = !var.horizontal_pod_autoscaling
     }
 
     network_policy_config {
-      disabled = ! var.network_policy
+      disabled = !var.network_policy
+    }
+
+    istio_config {
+      disabled = !var.istio_enabled
+    }
+
+    cloudrun_config {
+      disabled = !var.cloudrun_enabled
+    }
+
+    config_connector_config {
+      enabled = var.config_connector_enabled
+    }
+
+    gce_persistent_disk_csi_driver_config {
+      enabled = var.gcp_csi_driver
+    }
+
+    dns_cache_config {
+      enabled = var.dns_local_cache
+    }
+
+    kalm_config {
+      enabled = var.kalm_enabled
     }
   }
 

@@ -90,6 +90,42 @@ variable "horizontal_pod_autoscaling" {
   default     = true
 }
 
+variable "gcp_csi_driver" {
+  type        = bool
+  description = "Enable Google Compute Engine Persistent Disk Container Storage Interface addon"
+  default     = true
+}
+
+variable "dns_local_cache" {
+  type        = bool
+  description = "Enable NodeLocal DNS Cache addon"
+  default     = true
+}
+
+variable "config_connector_enabled" {
+  type        = bool
+  description = "Enable ConfigConnector addon"
+  default     = false
+}
+
+variable "cloudrun_enabled" {
+  type        = bool
+  description = "Enable cloud run addon"
+  default     = false
+}
+
+variable "istio_enabled" {
+  type        = bool
+  description = "Enable istio addon"
+  default     = false
+}
+
+variable "kalm_enabled" {
+  type        = bool
+  description = "Enable kalm addon"
+  default     = false
+}
+
 variable "http_load_balancing" {
   type        = bool
   description = "Enable httpload balancer addon"
